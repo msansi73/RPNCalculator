@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+
 using Xunit;
 
 namespace RPNCalculator.Tests
@@ -10,14 +11,17 @@ namespace RPNCalculator.Tests
     // Caratteri non validi
     // Gestire risultati negativi
     // Gestire input negativi
+    // Controllare divisioni per zero
     public class Class1
     {
-        
+
         [Theory]
         [InlineData("24", 24)]
         [InlineData("25", 25)]
         [InlineData("2 3 +", 5)]
         [InlineData("7 1 -", 6)]
+        [InlineData("2 8 *", 16)]
+        [InlineData("6 2 /", 3)]
         public void CanParseAnExpression(string inputExpression, double expectedResult)
         {
             double result = VerificaSeNumero(inputExpression);
@@ -39,14 +43,19 @@ namespace RPNCalculator.Tests
                         return double.Parse(n1) + double.Parse(n2 ?? "0");
                     case "-":
                         return double.Parse(n1) - double.Parse(n2 ?? "0");
+                    case "*":
+                        return double.Parse(n1) * double.Parse(n2 ?? "0");
+                    case "/":
+                        return double.Parse(n1) / double.Parse(n2 ?? "0");
+
 
                 }
             }
 
             return double.Parse(n1);
-           
 
-            
+
+
         }
     }
 }
