@@ -24,11 +24,11 @@ namespace RPNCalculator.Tests
         [InlineData("6 2 /", 3)]
         public void CanParseAnExpression(string inputExpression, double expectedResult)
         {
-            double result = VerificaSeNumero(inputExpression);
+            double result = CheckIfNumber(inputExpression);
             Assert.Equal(expectedResult, result);
         }
 
-        private double VerificaSeNumero(string expression)
+        private double CheckIfNumber(string expression)
         {
             var items = expression.Split(" ");
 
@@ -47,8 +47,6 @@ namespace RPNCalculator.Tests
                         return double.Parse(n1) * double.Parse(n2 ?? "0");
                     case "/":
                         return double.Parse(n1) / double.Parse(n2 ?? "0");
-
-
                 }
             }
 
