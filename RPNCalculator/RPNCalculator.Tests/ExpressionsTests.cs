@@ -24,25 +24,32 @@ namespace RPNCalculator.Tests
         [InlineData("6 2 /", 3)]
         public void CanParseAnExpression(string inputExpression, double expectedResult)
         {
-            double result = CheckIfNumber(inputExpression);
+            double result = EvaluateExpression(inputExpression);
             Assert.Equal(expectedResult, result);
         }
 
-        private double CheckIfNumber(string expression)
+        private static double EvaluateExpression(string expression)
         {
             var items = expression.Split(" ");
 
-            var n1 = items.ElementAt(0);
-            var n2 = items.ElementAtOrDefault(1);
+            var firstValue = double.Parse(items.ElementAt(0));
+            
+            if (items.Length == 1) return firstValue;
+            
+            var secondValue = double.Parse(items.ElementAt(1));
 
-            if (items.Length != 3) return double.Parse(n1);
-            return items.ElementAt(2) switch
+            return DoArithmetics(firstValue, secondValue, items.ElementAt(2));
+        }
+
+        private static double DoArithmetics(double firstValue, double secondValue, string operation)
+        {
+            return operation switch
             {
-                "+" => double.Parse(n1) + double.Parse(n2 ?? "0"),
-                "-" => double.Parse(n1) - double.Parse(n2 ?? "0"),
-                "*" => double.Parse(n1) * double.Parse(n2 ?? "0"),
-                "/" => double.Parse(n1) / double.Parse(n2 ?? "0"),
-                _ => double.Parse(n1)
+                "+" => firstValue + secondValue,
+                "-" => firstValue - secondValue,
+                "*" => firstValue * secondValue,
+                "/" => firstValue / secondValue,
+                _ => firstValue
             };
         }
     }
