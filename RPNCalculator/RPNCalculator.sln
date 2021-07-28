@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPNCalculator", "RPNCalculator\RPNCalculator.csproj", "{DC5216BF-6C39-45D6-9DAE-E4D41E399664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPNCalculator.Tests", "RPNCalculator.Tests\RPNCalculator.Tests.csproj", "{91FC427D-E7D3-4457-8186-B1E269CDE9FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC5216BF-6C39-45D6-9DAE-E4D41E399664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC5216BF-6C39-45D6-9DAE-E4D41E399664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC5216BF-6C39-45D6-9DAE-E4D41E399664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC5216BF-6C39-45D6-9DAE-E4D41E399664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91FC427D-E7D3-4457-8186-B1E269CDE9FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91FC427D-E7D3-4457-8186-B1E269CDE9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91FC427D-E7D3-4457-8186-B1E269CDE9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91FC427D-E7D3-4457-8186-B1E269CDE9FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E20B2E3-A8D8-458C-9678-99988A2A5D31}
+	EndGlobalSection
+EndGlobal
