@@ -35,25 +35,15 @@ namespace RPNCalculator.Tests
             var n1 = items.ElementAt(0);
             var n2 = items.ElementAtOrDefault(1);
 
-            if (items.Length == 3)
+            if (items.Length != 3) return double.Parse(n1);
+            return items.ElementAt(2) switch
             {
-                switch (items.ElementAt(2))
-                {
-                    case "+":
-                        return double.Parse(n1) + double.Parse(n2 ?? "0");
-                    case "-":
-                        return double.Parse(n1) - double.Parse(n2 ?? "0");
-                    case "*":
-                        return double.Parse(n1) * double.Parse(n2 ?? "0");
-                    case "/":
-                        return double.Parse(n1) / double.Parse(n2 ?? "0");
-                }
-            }
-
-            return double.Parse(n1);
-
-
-
+                "+" => double.Parse(n1) + double.Parse(n2 ?? "0"),
+                "-" => double.Parse(n1) - double.Parse(n2 ?? "0"),
+                "*" => double.Parse(n1) * double.Parse(n2 ?? "0"),
+                "/" => double.Parse(n1) / double.Parse(n2 ?? "0"),
+                _ => double.Parse(n1)
+            };
         }
     }
 }
